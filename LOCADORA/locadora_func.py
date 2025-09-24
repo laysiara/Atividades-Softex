@@ -1,17 +1,18 @@
 
 filmes=[["exterminador",20],["barbie",10]]
 
-print ("Escolha a opção que você deseja\n*********************************")
-print ("1 - ADICIONAR ESTOQUE DE FILME DA LOCADORA")
-print ("2 - REMOVER ESTOQUE DA LOCADORA ")
-print ("3 - PESQUISA DE FILME PARA ALUGAR")
-print ("4 - SAIR")
+def Menu(): 
+    print ("Escolha a opção que você deseja\n*********************************")
+    print ("1 - ADICIONAR ESTOQUE DE FILME DA LOCADORA")
+    print ("2 - REMOVER ESTOQUE DA LOCADORA ")
+    print ("3 - PESQUISA DE FILME PARA ALUGAR")
+    print ("4 - SAIR")
 
-op=int(input("Opção: "))
+    op=int(input("Opção: "))
+    return op
 
-while op!=4:
 
-    if op == 1:
+def Adic_estoque():
         encontrou=0
         
         nomes_estoques=[]
@@ -56,10 +57,8 @@ while op!=4:
                     elemento[1]+=estoque_adicionado
             print("**************************")
             print("Produto atualizado.")
- 
 
-    if op == 2:
-
+def Remov_estoque():
         print("Você deseja remover o produto(1) ou o estoque?(2): ")
         escolha=int(input(""))
 
@@ -109,9 +108,7 @@ while op!=4:
                             filmes[i][1]-=estoque_dimin
     
 
-
-    if op==3:
-
+def Pesquisa():
         for i in range(len(filmes)):
             print(f"Filme: {filmes[i][0]}, quantidade disponível: {filmes[i][1]}")
 
@@ -133,15 +130,29 @@ while op!=4:
                         filmes[i][1]-=1
 
             print("FILME ALUGADO")
-                
-    print("filmes: ",filmes)
-    print ("Escolha a opção que você deseja\n*********************************")
-    print ("1 - ADICIONAR ESTOQUE DE FILME DA LOCADORA")
-    print ("2 - REMOVER ESTOQUE DA LOCADORA ")
-    print ("3 - PESQUISA DE FILME PARA ALUGAR")
-    print ("4 - SAIR")
+ 
+continuar=True
+while continuar:
 
-    op=int(input("Escolha a opção: "))
+    print("filmes: ",filmes)
+
+    op=Menu()
+
+
+    if op == 1:
+        Adic_estoque()
+    elif op == 2:
+        Remov_estoque()
+    elif op==3:
+        Pesquisa()
+    elif op==4:
+         continuar=False
+    else:
+         print("OPçaõ inválida")
+
+    
+    
+    
 
 
         
