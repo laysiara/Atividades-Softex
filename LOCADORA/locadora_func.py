@@ -130,6 +130,11 @@ def Pesquisa():
                         filmes[i][1]-=1
 
             print("FILME ALUGADO")
+
+
+
+
+
  
 continuar=True
 while continuar:
